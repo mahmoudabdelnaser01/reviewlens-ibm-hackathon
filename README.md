@@ -301,5 +301,5 @@ All rights reserved per the Official Rules of the contest.
 
 - [IBM Bob Dev Day Hackathon](https://compete.052601.watsonx-challenge.ibm.com/competitions/bobdevday)
 - [IBM Bob Documentation](https://www.ibm.com)
-- [Video Demo](#) *(link added before submission)*
-- [IBM Bob Session Export](#) *(added before submission)*
+- **Video Demo** — Submitted via hackathon portal
+- **IBM Bob Session Export** — Submitted via hackathon portal (proprietary data)
