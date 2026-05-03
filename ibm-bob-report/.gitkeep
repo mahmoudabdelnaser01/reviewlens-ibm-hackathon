@@ -1,0 +1,20 @@
+# IBM Bob Session Exports
+
+This directory will contain exported IBM Bob conversation sessions for hackathon submission.
+
+## What to Include
+
+Before submitting the project, export your IBM Bob sessions and place them here:
+
+- `sessions-export.pdf` - PDF export of all IBM Bob conversations
+- `prompt-development.md` - Documentation of prompt engineering process
+- `test-results.md` - Sample analyses and results
+
+## Instructions
+
+1. During development, use IBM Bob to test and refine prompts
+2. Document all significant conversations and iterations
+3. Export sessions as PDF before final submission
+4. Include screenshots of successful analyses
+
+This demonstrates how IBM Bob was used as the core AI engine throughout development.
