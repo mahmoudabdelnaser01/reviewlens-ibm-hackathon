@@ -2,7 +2,7 @@
 ### *"Your reviews are talking. We translate."*
 
 > **IBM Bob Dev Day Hackathon 2026 Submission**
-> Built with IBM Bob as the core AI engine.
+> Built with IBM watsonx.ai as the core AI engine.
 
 ---
 
@@ -31,7 +31,7 @@ This "data friction" delays critical business decisions and negatively impacts p
 
 ## 💡 The Solution
 
-ReviewLens ingests raw, copy-pasted customer reviews and uses **IBM Bob** as an intelligent analyst to:
+ReviewLens ingests raw, copy-pasted customer reviews and uses **IBM watsonx.ai** as an intelligent analyst to:
 
 1. Understand context and sentiment without predefined schemas
 2. Extract recurring themes and classify them automatically
@@ -61,16 +61,16 @@ No CSV. No setup. No technical knowledge required.
 │                                                      │
 │  1. Receive raw text                                 │
 │  2. Build structured prompt                          │
-│  3. Call IBM Bob API                                 │
+│  3. Call IBM watsonx.ai API                          │
 │  4. Parse JSON response                              │
 │  5. Return structured data to frontend               │
 └─────────┬───────────────────────────────────────────┘
-          │ IBM Bob API Call
+          │ IBM watsonx.ai API Call
           ▼
 ┌─────────────────────────────────────────────────────┐
-│                    IBM BOB                           │
+│              IBM WATSONX.AI                          │
 │                                                      │
-│  - Sentiment Analysis                                │
+│  - Sentiment Analysis (Granite 3 8B Instruct)        │
 │  - Theme Extraction                                  │
 │  - Priority Ranking                                  │
 │  - Action Plan Generation                            │
@@ -85,20 +85,22 @@ No CSV. No setup. No technical knowledge required.
 |---|---|---|
 | **Frontend** | React + Tailwind CSS | Fast to build, clean UI |
 | **Backend** | Node.js + Express | Lightweight API server |
-| **AI Engine** | IBM Bob | Core intelligence — prompt engineering |
+| **AI Engine** | IBM watsonx.ai | Core intelligence — IBM Granite 3 8B Instruct model |
 | **Charts** | Recharts | Visualize sentiment distribution |
 | **Hosting** | IBM Cloud (Code Engine) | Stays within IBM ecosystem |
 | **Version Control** | GitHub | Required for submission |
 
 ---
 
-## 🤖 How IBM Bob Is Used
+## 🤖 How IBM watsonx.ai Is Used
 
-IBM Bob is the **sole AI engine** of this application. It is not used as a chatbot — it is used as a **structured data analyst** via carefully engineered prompts.
+IBM watsonx.ai is the **sole AI engine** of this application. It is not used as a chatbot — it is used as a **structured data analyst** via carefully engineered prompts.
+
+We use the **IBM Granite 3 8B Instruct** model, which is specifically designed for instruction-following tasks.
 
 ### The Core Prompt Strategy
 
-Bob receives the following structured prompt:
+The AI model receives the following structured prompt:
 
 ```
 You are a senior e-commerce business analyst.
@@ -141,10 +143,10 @@ REVIEWS TO ANALYZE:
 
 ### Why This Is Powerful
 
-- IBM Bob **understands context** — it can parse sarcasm, mixed-language reviews, and informal text
+- IBM watsonx.ai **understands context** — it can parse sarcasm, mixed-language reviews, and informal text
 - The **schema-enforced JSON output** makes the response directly usable by the frontend
 - No traditional NLP pipeline or ML model training is required
-- Bob handles **any language or format** the user pastes
+- The AI handles **any language or format** the user pastes
 
 ---
 
@@ -171,14 +173,14 @@ reviewlens/
 │   ├── routes/
 │   │   └── analyze.js               # POST /api/analyze
 │   ├── services/
-│   │   └── bobService.js            # IBM Bob API integration
+│   │   └── bobService.js            # IBM watsonx.ai API integration
 │   ├── prompts/
 │   │   └── reviewAnalyst.js         # Core prompt template
 │   └── package.json
 │
-├── .env.example                     # IBM Bob credentials template
+├── .env.example                     # IBM watsonx.ai credentials template
 ├── README.md
-└── ibm-bob-report/                  # Exported IBM Bob sessions (for submission)
+└── ibm-bob-report/                  # Hackathon submission materials
     └── sessions-export.pdf
 ```
 
@@ -189,8 +191,8 @@ reviewlens/
 ### Prerequisites
 
 - Node.js 18+
-- IBM Bob account (provided during hackathon)
-- IBM Cloud account (optional, for deployment)
+- IBM watsonx.ai API access (IBM Cloud account)
+- IBM Cloud account (for deployment)
 
 ### Installation
 
@@ -213,8 +215,9 @@ npm install
 Create a `.env` file in `/backend`:
 
 ```env
-IBM_BOB_API_KEY=your_ibm_bob_api_key
-IBM_BOB_API_URL=your_ibm_bob_endpoint
+IBM_WATSONX_API_KEY=your_ibm_watsonx_api_key
+IBM_WATSONX_API_URL=https://us-south.ml.cloud.ibm.com/ml/v1/text/generation
+IBM_WATSONX_PROJECT_ID=your_project_id
 PORT=3001
 ```
 
@@ -247,10 +250,10 @@ Open `http://localhost:5173` in your browser.
 3. User clicks "Analyze Reviews"
         │
         ▼
-4. Backend builds the structured prompt and calls IBM Bob
+4. Backend builds the structured prompt and calls IBM watsonx.ai
         │
         ▼
-5. IBM Bob returns structured JSON analysis
+5. IBM watsonx.ai returns structured JSON analysis
         │
         ▼
 6. Frontend renders the Results Dashboard:
@@ -267,7 +270,7 @@ Open `http://localhost:5173` in your browser.
 | Criterion | How ReviewLens Addresses It |
 |---|---|
 | **Completeness & Feasibility** | Fully working MVP with clear, deployable architecture. No external scraping or complex dependencies. |
-| **Creativity & Innovation** | Uses IBM Bob as a structured data analyst, not a chatbot. Schema-enforced JSON output is a novel prompt engineering approach. |
+| **Creativity & Innovation** | Uses IBM watsonx.ai as a structured data analyst, not a chatbot. Schema-enforced JSON output is a novel prompt engineering approach. |
 | **Design & Usability** | Zero technical knowledge required. Paste text → get insights. Designed for non-technical business owners. |
 | **Effectiveness & Efficiency** | Reduces hours of manual review analysis to seconds. Measurable impact: time saved per week per business owner. |
 
@@ -300,6 +303,6 @@ All rights reserved per the Official Rules of the contest.
 ## 🔗 Links
 
 - [IBM Bob Dev Day Hackathon](https://compete.052601.watsonx-challenge.ibm.com/competitions/bobdevday)
-- [IBM Bob Documentation](https://www.ibm.com)
+- [IBM watsonx.ai Documentation](https://www.ibm.com/products/watsonx-ai)
 - **Video Demo** — Submitted via hackathon portal
-- **IBM Bob Session Export** — Submitted via hackathon portal (proprietary data)
+- **Hackathon Materials** — Submitted via hackathon portal
